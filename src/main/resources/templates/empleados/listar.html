@@ -7,51 +7,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar bg-body-tertiary justify-content-end">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{'/empleado/listar'}">Empleados</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Historial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Reportes</a>
+        </li>
+
+    </ul>
+</nav>
 
 <div class = "container">
-    <div class="row mt-4 mb-4">
-
-        <div class="col-1 mt-5 text-center">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link " href="#">Empleados</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-2 mt-5 text-center">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link " href="#">Historial</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-2 mt-5 text-center">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link " href="#">Reportes</a>
-                </li>
-            </ul>
-        </div>
-
-    </div>
-    <h1 class="container text-center">LISTA DE EMPLEADOS</h1>
-    <div class="d-flex justify-content-between align-items-center">
-        <form method="post" >
-            <input name="searchField" class="form-control mb-3" type="text" placeholder="Search" aria-label="Search">
-        </form>
-        <div class=" col-3 mt-5">
-            <button type="button ml-3" class="btn btn-primary">Buscar</button>
-            <button type="button mr-3" class="btn btn-dark">Limpiar</button>
-        </div>
-    </div>
-
+    <h1 class="container text-center">EMPLEADOS TOTALES</h1>
     <a th:href="@{'/empleado/nuevoForm'}">
-        <button type="button" class="btn btn-primary">Nuevo Empelado</button>
+        <button type="button" class="btn btn-primary m-1">Nuevo Empelado</button>
     </a>
-
-
+    <form method="post" th:action="@{/empleado/buscar}">
+        <input name="searchField" class="form-control mb-3" type="text" placeholder="Search" aria-label="Search">
+    </form>
     <table class="table">
         <thead>
         <tr>
@@ -69,18 +47,18 @@
         <thead>
         <tbody>
 
-        <tr th:each="empleado, indice : ${lista}">
+        <tr th:each="empleado: ${lista}">
 
-            <td th:text = "${indice.index +1}"></td>
-            <td th:text = "${empleado.getNombre()}"></td>
-            <td th:text = "${empleado.getApellido()}"></td>
-            <td th:text = "${empleado.getPuesto()}"></td>
-            <td th:text = "${empleado.getDepartamento()}"></td>
-            <td th:text = "${empleado.getCiudad()}"></td>
+            <td th:text = "${empleado.employee_id}"></td>
+            <td th:text = "${empleado.first_name}"></td>
+            <td th:text = "${empleado.last_name}"></td>
+            <td th:text = "${empleado.job.job_title}"></td>
+            <td th:text = "${empleado.departmento.department_name}"></td>
+            <td th:text = "${empleado.departmento.location.city}"></td>
 
 
             <td> <a class="btn btn-info" > Editar</a> </td>
-            <td> <a class="btn btn-success"  >Derivar Pacientes</a> </td>
+            <td> <a class="btn btn-danger"  >Borrar</a> </td>
 
         </tr>
 

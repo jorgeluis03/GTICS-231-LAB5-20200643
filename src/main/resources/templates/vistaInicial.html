@@ -15,52 +15,21 @@
 </head>
 
 <body>
+<nav class="navbar bg-body-tertiary justify-content-end">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{'/empleado/listar'}">Empleados</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Historial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Reportes</a>
+        </li>
 
+    </ul>
+</nav>
 <div class="container">
-
-    <div class="row mt-4 mb-4">
-
-        <div class="col-1 mt-5 text-center">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link " th:href="@{/empleado/listar}">Empleados</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-2 mt-5 text-center">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link " href="#">Historial</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-2 mt-5 text-center">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link " href="#">Reportes</a>
-                </li>
-            </ul>
-        </div>
-
-        <!--<div class="col-4 mt-5">
-            <input class="form-control me-2 " type="search" placeholder="Buscar destino" aria-label="Search">
-        </div>
-
-        <div class=" col-3 mt-5">
-            <button type="button ml-3" class="btn btn-primary">Buscar</button>
-            <button type="button mr-3" class="btn btn-dark">Cerrar Sesión</button>
-        </div>-->
-
-    </div>
-
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-2"></div>
-    </div>
-
-
 
     <div class="card text-center mt-2 border-white">
         <div class="card-body">
@@ -73,49 +42,7 @@
         </div>
     </div>
 
-   <!-- <div class="row">
-        <div class="col-sm-6 mt-2 ml-2 mb-4" th:each="vuelo:${listaVuelos}">
-            <div class="card text-center border-white">
-                <div  class="card-body">
-                    <div>
-                        <h5 class="card-title mt-3" th:text="${vuelo.origen}+' - '+${vuelo.destino}+' ($'+${vuelo.precio}+'.00)'"></h5>
-                    </div>
 
-                    <p class="text-success"><b th:text="${vuelo.aerolinea.nombre}+' - '+${vuelo.aerolinea.codigo}">Star Peru - 2I</b> </p>
-                    <p th:text="${vuelo.descripcion}">Definitivamente el turismo en Bogotá en más que Monserrate y la Candelaria, hay muchas excursiones por
-                        senderos
-                        mágicos que puedes realizar. Estas actividades también se conocen como: senderismo, excursionismo,
-                        caminata, montañismo,
-                        hiking o trekking.</p>
-                    <form method="post" th:action="@{/reserva(iduser=${user.iduser},idvuelo=${vuelo.idvuelo},precio=${vuelo.precio})}">
-                        <button type="submit" class="btn btn-success btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#confirmModal">Comprar</button>
-                    </form>
-                </div>
-
-            </div>
-            <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="confirmModalLabel">Felicidades</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-success">
-                            Se realizó con exito su reserva
-                        </div>
-                        <div class="modal-footer">
-
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Entendido</button>
-
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>-->
 
 
 

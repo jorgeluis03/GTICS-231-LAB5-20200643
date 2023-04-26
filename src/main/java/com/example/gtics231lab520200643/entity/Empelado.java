@@ -20,9 +20,15 @@ public class Empelado {
     private String password;
     private String phone_number;
     private LocalDate hire_date;
-
-    private String job_id;
-    private int manager_id;
-    private int department_id;
+    @ManyToOne
+    @JoinColumn(name = "job_id")
+    private Job job;
+    private double salary;
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Empelado manager;
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Departamento departmento;
 
 }

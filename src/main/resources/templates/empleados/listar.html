@@ -24,6 +24,8 @@
 
 <div class = "container">
     <h1 class="container text-center">EMPLEADOS TOTALES</h1>
+    <div class="alert alert-success" role="alert" th:if="${msg!=null}" th:text="${msg}" ></div>
+    <div class="alert alert-danger" role="alert" th:if="${msgError!=null}" th:text="${msgError}" ></div>
     <a th:href="@{'/empleado/nuevoForm'}">
         <button type="button" class="btn btn-primary m-1">Nuevo Empelado</button>
     </a>
@@ -57,8 +59,8 @@
             <td th:text = "${empleado.departmento.location.city}"></td>
 
 
-            <td> <a class="btn btn-info" > Editar</a> </td>
-            <td> <a class="btn btn-danger"  >Borrar</a> </td>
+            <td> <a class="btn btn-info" th:href="@{'/empleado/editForm?id='+${empleado.employee_id}}"> Editar</a> </td>
+            <td> <a class="btn btn-danger" th:href="@{'/empleado/borrar?id='+${empleado.employee_id}}" >Borrar</a> </td>
 
         </tr>
 

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+
+<div class = "container">
+  <h1 class="container text-center">Reporte - Sueldos</h1>
+
+  <a th:href="@{'/reportes'}">
+    <button type="button" class="btn btn-secondary mb-1">Regresar</button>
+  </a>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Puesto</th>
+      <th scope="col">Salario Maximo</th>
+      <th scope="col">Salario Minimo</th>
+      <th scope="col">Salario Total</th>
+      <th scope="col">Salario Promedio</th>
+    </tr>
+    <thead>
+    <tbody>
+
+    <tr th:each="puesto: ${listaSalario}">
+
+      <td th:text = "${puesto.getPuesto()}"></td>
+      <td th:text = "${puesto.getSalariomaximo()}"></td>
+      <td th:text = "${puesto.getSalariominimo()}"></td>
+      <td th:text = "${puesto.getSalariototales()}"></td>
+      <td th:text = "${puesto.getSalariopromedio()}"></td>
+    </tr>
+
+    </tbody>
+
+  </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
+</body>
+</html>

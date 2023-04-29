@@ -26,9 +26,15 @@
     <h1 class="container text-center">EMPLEADOS TOTALES</h1>
     <div class="alert alert-success" role="alert" th:if="${msg!=null}" th:text="${msg}" ></div>
     <div class="alert alert-danger" role="alert" th:if="${msgError!=null}" th:text="${msgError}" ></div>
-    <a th:href="@{'/empleado/nuevoForm'}">
-        <button type="button" class="btn btn-primary m-1">Nuevo Empelado</button>
-    </a>
+    <div class = "d-flex justify-content-between align-items-center">
+        <a th:href="@{'/empleado/nuevoForm'}">
+            <button type="button" class="btn btn-primary m-1">Nuevo Empelado</button>
+        </a>
+        <a th:href="@{'/'}">
+            <button type="button" class="btn btn-secondary mb-1">Regresar</button>
+        </a>
+    </div>
+
     <form method="post" th:action="@{/empleado/buscar}">
         <input name="searchField" class="form-control mb-3" type="text" placeholder="Search" aria-label="Search">
     </form>
